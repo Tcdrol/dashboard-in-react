@@ -12,7 +12,7 @@ const Dashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <UserCard 
-                name="MUKALE MIRRIAM MOONDE"
+                name="MUKALE aMIRRIAM MOONDE"
                 role="Administrator"
                 email="mukale.mirriam.monde@example.com"
               />
