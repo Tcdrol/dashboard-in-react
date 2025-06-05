@@ -1,91 +1,40 @@
-import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import React from 'react';
 
 interface HeaderProps {
   onMenuClick: () => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onMenuClick }) => {
-  const location = useLocation();
-  const [pageTitle, setPageTitle] = useState('Dashboard');
-  const [isSearchFocused, setIsSearchFocused] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
-
-  // Update page title based on route
-  useEffect(() => {
-    const path = location.pathname.split('/')[1] || 'dashboard';
-    const title = path.charAt(0).toUpperCase() + path.slice(1);
-    setPageTitle(title);
-  }, [location]);
-
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-30">
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Left section */}
-          <div className="flex items-center">
-            <button 
-              onClick={onMenuClick}
-              className="p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-              aria-label="Toggle menu"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
-            <h1 className="ml-4 text-xl font-semibold text-gray-900">{pageTitle}</h1>
+    <header className="bg-gray-800 shadow-sm p-4 flex justify-between items-center sticky top-0 z-10">
+      <div className="flex items-center space-x-4">
+        <button 
+          onClick={onMenuClick}
+          className="lg:hidden p-2 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          aria-label="Toggle menu"
+        >
+          <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <h1 className="text-xl font-semibold text-white">Dashboard</h1>
+      </div>
+      <div className="flex items-center space-x-4">
+        <div className="relative hidden sm:block">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
+                     bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
+          />
+          <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+            <svg className="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+            </svg>
           </div>
-
-          {/* Right section */}
-          <div className="flex items-center space-x-3 sm:space-x-6">
-            {/* Search bar - hidden on mobile when not focused */}
-            <div className={`relative ${isSearchFocused ? 'block' : 'hidden sm:block'}`}>
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </div>
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onFocus={() => setIsSearchFocused(true)}
-                onBlur={() => setIsSearchFocused(false)}
-                placeholder="Search..."
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm transition duration-150 ease-in-out"
-              />
-            </div>
-
-            {/* Mobile search button */}
-            <button 
-              className="sm:hidden p-2 rounded-md text-gray-500 hover:text-gray-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              onClick={() => setIsSearchFocused(!isSearchFocused)}
-              aria-label="Search"
-            >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </button>
-
-            {/* User profile */}
-            <div className="relative">
-              <button 
-                className="flex items-center text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                id="user-menu"
-                aria-haspopup="true"
-              >
-                <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
-                  <span className="text-white font-medium text-sm">MM</span>
-                </div>
-                <span className="ml-2 text-sm font-medium text-gray-700 hidden sm:inline-block">
-                  Admin
-                </span>
-                <svg className="ml-1 h-4 w-4 text-gray-500 hidden sm:block" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </button>
-            </div>
-          </div>
+        </div>
+        <div className="w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
+          <span className="text-gray-200 font-medium">MM</span>
         </div>
       </div>
     </header>
