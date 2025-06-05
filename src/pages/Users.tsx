@@ -122,7 +122,8 @@ const Users: React.FC = () => {
         </div>
       </div>
     </DashboardLayout>
-  );
+
+);
 };
 
 export default Users;
