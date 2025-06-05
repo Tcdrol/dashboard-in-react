@@ -25,7 +25,7 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
           <Sidebar onNavigate={() => setIsSidebarOpen(false)} />
         </div>
 
-        {/* Main content */}
+        {/* Main contentkjafbglakjfbasfkljbvalfkvbelkhjabvsf */}
         <div className="flex-1 flex flex-col overflow-hidden lg:pl-64">
           <Header onMenuClick={() => setIsSidebarOpen(!isSidebarOpen)} />
           <main className="flex-1 overflow-x-hidden overflow-y-auto p-4 md:p-6 bg-gray-50 dark:bg-gray-800 transition-colors duration-200">
