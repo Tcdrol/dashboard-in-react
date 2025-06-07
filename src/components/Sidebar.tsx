@@ -48,25 +48,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onNavigate }) => {
       badge: 3,
     },
     { 
-      name: 'Products', 
-      icon: <BsBoxSeam className={styles['nav-icon']} />, 
-      path: '/products',
-    },
-    { 
       name: 'Analytics', 
       icon: <FiPieChart className={styles['nav-icon']} />, 
-      path: '#',
-      children: [
-        { name: 'Overview', icon: <FiPieChart className={styles['nav-icon']} />, path: '/analytics/overview' },
-        { name: 'Reports', icon: <HiOutlineDocumentReport className={styles['nav-icon']} />, path: '/analytics/reports' },
-        { name: 'Activity', icon: <RiFileList3Line className={styles['nav-icon']} />, path: '/analytics/activity' },
-      ],
-    },
-    { 
-      name: 'Messages', 
-      icon: <TbMessages className={styles['nav-icon']} />, 
-      path: '/messages',
-      badge: 5,
+      path: '/analytics',
+      
     },
     { 
       name: 'Calendar', 
@@ -172,21 +157,21 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onNavigate }) => {
         <div className={styles['nav-section']}>
           <h3 className={styles['nav-title']}>Main</h3>
           <ul className={styles['nav-list']}>
-            {navItems.slice(0, 3).map((item, index) => renderNavItem(item, index))}
+            {navItems.slice(0, 2).map((item, index) => renderNavItem(item, index))}
           </ul>
         </div>
 
         <div className={styles['nav-section']}>
           <h3 className={styles['nav-title']}>Analytics</h3>
           <ul className={styles['nav-list']}>
-            {navItems.slice(3, 5).map((item, index) => renderNavItem(item, index + 3))}
+            {navItems.slice(2, 4).map((item, index) => renderNavItem(item, index + 2))}
           </ul>
         </div>
 
         <div className={styles['nav-section']}>
           <h3 className={styles['nav-title']}>General</h3>
           <ul className={styles['nav-list']}>
-            {navItems.slice(5).map((item, index) => renderNavItem(item, index + 5))}
+            {navItems.slice(4).map((item, index) => renderNavItem(item, index + 4))}
           </ul>
         </div>
       </nav>

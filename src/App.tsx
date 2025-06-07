@@ -5,6 +5,8 @@ import Dashboard from './pages/Dashboard';
 import Users from './pages/Users';
 import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
+import Calendar from './pages/Calendar';
+
 import './App.css';
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/users" element={<Users />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </Router>
