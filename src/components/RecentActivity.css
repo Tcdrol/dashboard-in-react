@@ -1,0 +1,106 @@
+/* Recent Activity Container */
+.recent-activity-container {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-1);
+  padding: var(--spacing-6);
+  width: 100%;
+  box-sizing: border-box;
+  transition: var(--transition);
+  border: 1px solid var(--color-border);
+}
+
+.recent-activity-container:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
+}
+
+.recent-activity-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-4) 0;
+  padding-bottom: var(--spacing-3);
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.recent-activity-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 1.25rem;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+.recent-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  transition: var(--transition);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+}
+
+.activity-item:hover {
+  background-color: var(--color-card-hover);
+  border-color: var(--color-border);
+  transform: translateX(4px);
+}
+
+.activity-item:last-child {
+  margin-bottom: 0;
+}
+
+.activity-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--color-text);
+}
+
+.activity-user {
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  position: relative;
+  padding-right: var(--spacing-2);
+}
+
+.activity-user::after {
+  content: '•';
+  position: absolute;
+  right: 0;
+  color: var(--color-text-lighter);
+  font-weight: normal;
+}
+
+.activity-timestamp {
+  font-size: 0.8125rem;
+  color: var(--color-text-light);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.activity-timestamp::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--color-text-lighter);
+}

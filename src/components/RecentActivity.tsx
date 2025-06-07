@@ -15,15 +15,16 @@ const RecentActivity = () => {
   ];
 
   return (
-    <div className="bg-white rounded-lg shadow p-6">
-      <h2 className="text-lg font-semibold mb-4">Recent Activity</h2>
-      <div className="space-y-4">
+    <div className="recent-activity-container">
+      <h2 className="recent-activity-title">Recent Activity</h2>
+      <div className="recent-activity-list">
         {activities.map((activity) => (
-          <div key={activity.id} className="border-b pb-2 last:border-0 last:pb-0">
-            <p className="text-sm">
-              <span className="font-medium">{activity.user}</span> {activity.action}
-            </p>
-            <p className="text-xs text-gray-500">{activity.timestamp}</p>
+          <div key={activity.id} className="activity-item">
+            <div className="activity-content">
+              <span className="activity-user">{activity.user}</span>
+              {activity.action}
+            </div>
+            <p className="activity-timestamp">{activity.timestamp}</p>
           </div>
         ))}
       </div>

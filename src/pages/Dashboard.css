@@ -1,0 +1,224 @@
+/* Dashboard Layout */
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  padding: var(--spacing-4);
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+/* Main content area */
+.dashboard-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* Top section with user card and system status */
+.dashboard-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+/* Individual card containers */
+.user-card-wrapper,
+.system-status-wrapper {
+  width: 100%;
+  min-width: 0;
+  transition: var(--transition);
+}
+
+/* Quick stats section */
+.quick-stats {
+  width: 100%;
+}
+
+.quick-stats-container {
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-1);
+  padding: var(--spacing-6);
+  border: 1px solid var(--color-border);
+  transition: var(--transition);
+}
+
+.quick-stats-container:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
+}
+
+.quick-stats-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0 0 var(--spacing-5) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.quick-stats-title::before {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 1.5rem;
+  background-color: var(--color-primary);
+  border-radius: var(--radius-full);
+}
+
+/* Stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-4);
+}
+
+.stat-card {
+  background-color: var(--color-bg);
+  border-radius: var(--radius);
+  padding: var(--spacing-5);
+  transition: var(--transition);
+  border: 1px solid var(--color-border-light);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background-color: var(--color-primary);
+  transition: var(--transition);
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--elevation-2);
+  border-color: var(--color-border);
+}
+
+.stat-card:hover::before {
+  width: 6px;
+  background-color: var(--color-primary-dark);
+}
+
+.stat-title {
+  font-size: 0.875rem;
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-2) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.stat-value {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.stat-number {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.2;
+  font-feature-settings: 'tnum';
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-change {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-full);
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--color-success);
+}
+
+.stat-change.negative {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--color-danger);
+}
+
+/* Dashboard sidebar */
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .dashboard-top {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .stat-card {
+    padding: var(--spacing-6);
+  }
+  
+  .stat-number {
+    font-size: 1.875rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1024px) {
+  .dashboard-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-8);
+    padding: var(--spacing-6) var(--spacing-8);
+    max-width: 1440px;
+  }
+  
+  .dashboard-main {
+    grid-column: 1 / 2;
+  }
+  
+  .dashboard-sidebar {
+    grid-column: 2 / 3;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1280px) {
+  .dashboard-container {
+    padding: var(--spacing-8) var(--spacing-12);
+  }
+}
+
+/* Animation for stat cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
