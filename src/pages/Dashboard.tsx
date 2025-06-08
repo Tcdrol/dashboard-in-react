@@ -19,7 +19,7 @@ const Dashboard = () => {
           <div className="dashboard-top">
             <div className="user-card-wrapper">
               <UserCard 
-                name="MUKALE aMIRRIAM MOONDE"
+                name="MIRRIAM MOONDE"
                 role="Administrator"
                 email="mukale.mirriam.monde@example.com"
               />

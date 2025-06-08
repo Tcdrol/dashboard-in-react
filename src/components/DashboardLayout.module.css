@@ -22,14 +22,17 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (min-width: 768px) {
   .sidebar {
     transform: translateX(0);
-    position: sticky;
+    position: fixed;
     top: 0;
     left: 0;
+    bottom: 0;
   }
 }
 
@@ -62,17 +65,19 @@
 /* Main content area */
 .main-content {
   flex: 1;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   transition: var(--transition);
-  width: 100%;
+  background-color: var(--color-bg);
+  min-height: 100vh;
   margin-left: 0;
 }
 
+/* Adjust main content margin and width when sidebar is visible */
 @media (min-width: 768px) {
   .main-content {
-    margin-left: 280px;
+    margin-left: 280px; /* Match sidebar width */
     width: calc(100% - 280px);
   }
 }

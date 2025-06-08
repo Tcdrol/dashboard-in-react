@@ -180,7 +180,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen = false, onNavigate }) => {
         <NavLink to="/profile" className={styles['user-info']} onClick={handleNavigation}>
           <div className={styles['user-avatar']}>MM</div>
           <div className={styles['user-details']}>
-            <p className={styles['user-name']}>Mukale Mirriam</p>
+            <p className={styles['user-name']}>Mirriam Moonde</p>
             <p className={styles['user-role']}>Administrator</p>
           </div>
         </NavLink>

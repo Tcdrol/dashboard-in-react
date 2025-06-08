@@ -15,7 +15,7 @@ const RecentActivity = () => {
   ];
 
   return (
-    <div className="recent-activity-container">
+    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow p-6">
       <h2 className="recent-activity-title">Recent Activity</h2>
       <div className="recent-activity-list">
         {activities.map((activity) => (

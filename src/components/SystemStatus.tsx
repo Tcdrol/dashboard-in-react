@@ -21,7 +21,7 @@ const SystemStatus = () => {
   };
 
   return (
-    <div className="bg-grey rounded-lg shadow p-6">
+    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow p-6">
       <h2 className="text-lg font-semibold mb-4">System Status</h2>
       <div className="space-y-3">
         {statusItems.map((item, index) => (

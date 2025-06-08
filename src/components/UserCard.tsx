@@ -9,7 +9,7 @@ interface UserCardProps {
 
 const UserCard: React.FC<UserCardProps> = ({ name, role, email, avatar }) => {
   return (
-    <div className="bg-white rounded-lg shadow p-6">
+    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow p-6 w-full">
       <div className="flex items-center space-x-4">
         <div className="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center">
           {avatar ? (
